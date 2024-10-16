@@ -29,7 +29,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: 'https://sociale-x-new.vercel.app/',
+        origin: 'https://sociale-x-new.vercel.app',
         methods: ['GET', 'POST', 'PUT', 'DELETE']
     }
 });
