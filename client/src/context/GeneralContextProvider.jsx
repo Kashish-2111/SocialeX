@@ -4,7 +4,7 @@ import socketIoClient from 'socket.io-client';
 export const GeneralContext = createContext();
 
 
-const WS = 'http://localhost:6001';
+const WS = 'sociale-x-api.vercel.app';
 
 const socket = socketIoClient(WS);
 
