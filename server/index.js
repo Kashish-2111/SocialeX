@@ -16,11 +16,19 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+const corsOptions = {
+    origin: 'https://sociale-x-new.vercel.app', // Frontend origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ["Content-Type", "Authorization"], // Add custom headers if needed
+    credentials: true // Allow credentials
+};
+
+
 app.use(express.json());
 
 app.use(bodyParser.json({limit: "30mb", extended: true}))
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
-app.use(cors());
+app.use(cors(corsOptions));
 
 
 app.use('', authRoutes);
@@ -31,7 +39,7 @@ const io = new Server(server, {
     cors: {
         origin: 'https://sociale-x-new.vercel.app',
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ["my-custom-header"],
+        allowedHeaders: ["Content-Type", "Authorization"],
         credentials: true
     }
 });
